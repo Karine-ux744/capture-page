@@ -13,6 +13,34 @@ body {
   line-height: 1.4rem;
 }
 
+/* Regras gerais */
+.container {
+  max-width: 100rem;
+}
+.botao:link,
+.botao:visited {
+  color: #102535;
+  border-radius: 3rem;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background-color: #ffd24a;
+  border: solid 0.2rem #7d5e00;
+  border-bottom: solid 0.4rem #7d5e00;
+  border-right: solid 0.4rem #7d5e00;
+  font-weight: 600;
+  font-size: 1.92rem;
+  width: fit-content;
+  text-decoration: none;
+}
+.botao:hover,
+.botao:active {
+  border: solid 0.3rem #7d5e00;
+}
+.negrito-amarelo {
+  color: #eebe2a;
+}
+
+/* Seção "hero" */
 .secao-hero {
   background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/64957938a8a62d8071397ed5_pgc-python-bg1.webp);
   background-position: center;
@@ -83,26 +111,7 @@ body {
       font-size: 2.76rem;
       font-weight: 700;
     }
-    & a:link,
-    a:visited {
-      color: #102535;
-      border-radius: 3rem;
-      text-transform: uppercase;
-      padding: 1rem 2.5rem;
-      background-color: #ffd24a;
-      border: solid 0.2rem;
-      border-color: #7d5e00;
-      border-bottom: solid 0.4rem #7d5e00;
-      border-right: solid 0.4rem #7d5e00;
-      font-weight: 600;
-      font-size: 1.92rem;
-      width: fit-content;
-      text-decoration: none;
-    }
-    & a:hover,
-    a:active {
-      border: solid 0.3rem #7d5e00;
-    }
+
     .simbolo-hashtag {
       width: 6.5rem;
       height: 6.5rem;
@@ -117,6 +126,8 @@ body {
     }
   }
 }
+
+/* Seção "proteção de dados" */
 .secao-protecao-dados {
   font-size: 1.33rem;
   background-color: #e1e1e1;
@@ -126,43 +137,21 @@ body {
   flex-flow: row;
   justify-content: center;
   & p {
-    max-width: 75%;
     line-height: 1.5;
   }
 }
+
+/* "Seção passo a passo" */
 .secao-passo-a-passo {
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding: 6.1rem 2rem;
+
   & .container-secao-passo-a-passo {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    max-width: 75%;
     gap: 5rem;
-  }
-  & .titulo {
-    font-size: 4.78rem;
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: start;
-    gap: 2rem;
-    & h2 {
-      font-size: 4.78rem;
-      font-weight: 500;
-    }
-    & span {
-      font-weight: 600;
-      color: #256783;
-    }
-    & img {
-      width: 4.1rem;
-    }
-  }
-  & span {
-    font-weight: 700;
   }
 
   & .passos {
@@ -201,5 +190,128 @@ body {
         font-weight: 700;
       }
     }
+  }
+}
+.titulo-passo-a-passo,
+.titulo-evento-gratuito {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  & h2 {
+    font-size: 4.78rem;
+    font-weight: 500;
+  }
+  & span {
+    font-weight: 600;
+    color: #256783;
+  }
+  & img {
+    width: 4.1rem;
+  }
+}
+span {
+  font-weight: 700;
+}
+
+/* Seção "evento gratuito */
+.secao-evento-gratuito {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 3rem;
+  /* background-color: pink; */
+  & .container-evento-gratuito {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    gap: 5rem;
+    /* background-color: blue; */
+  }
+  & .videos-evento-gratuito {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    & img {
+      border-radius: 2rem;
+      max-width: 100%;
+    }
+  }
+  & .titulo-evento-gratuito {
+    max-width: 80%;
+    line-height: 1;
+    align-self: start;
+    & img {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+/* Seção "organizando */
+.secao-lira {
+  background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/62cefb1ecf7f4662905b5b1e_%5BBACKGROUND%5D%20-%20BANNER%2005%20-%20desktop.webp);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 55rem;
+  background-position-x: 50%;
+
+  & .linha-vertical {
+    width: 0.5rem;
+    height: 5rem;
+    background-color: #eebe2a;
+  }
+  & p {
+    color: #ffffff;
+    font-size: 1.6rem;
+  }
+  & .container-lira {
+    display: flex;
+    flex-flow: row;
+    align-items: end;
+    gap: 4rem;
+    max-width: 100rem;
+    /* background-color: green; */
+  }
+  & .titulo-lira {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    & p {
+      font-size: 2.3rem;
+    }
+  }
+  & .texto-lira {
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    line-height: 1.2;
+  }
+}
+
+/* Rodapé */
+footer {
+  display: flex;
+  justify-content: center;
+  & .container-footer {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    align-items: center;
+    width: 100rem;
+    padding: 4.88rem 2rem;
+  }
+  & p {
+    font-size: 1.6rem;
+  }
+  & a:link,
+  & a:visited,
+  & a:hover,
+  & a:active {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.6rem;
   }
 }
