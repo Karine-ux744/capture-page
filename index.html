@@ -54,7 +54,7 @@
               </div>
             </div>
             <p class="online-gratuito">100% Online e Gratuito</p>
-            <a class="botao" href="#">quero participar!</a>
+            <button onclick="exibirforms()">quero participar!</button>
             <div class="simbolo-hashtag">
               <img
                 src="https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/61f449266c92e6cb7fe98a43_LOGO%202%20(FINAL)%20V2%20(2).png"
@@ -199,7 +199,9 @@
               /></a>
             </div>
           </div>
-          <a class="botao" href="#">quero assitir as aulas de graça</a>
+          <button onclick="exibirforms()">
+            quero assitir as aulas de graça
+          </button>
         </div>
       </section>
       <section class="secao-lira">
@@ -255,5 +257,45 @@
         </div>
       </footer>
     </main>
+    <div class="formulario" id="formulario">
+      <form onsubmit="enviarforms(event)">
+        <input placeholder="*Seu primeiro nome" type="text" name="nome" />
+        <input placeholder="*Seu melhor e-mail" type="email" name="email" />
+        <input
+          placeholder="Insira seu WhatsApp com DDD"
+          type="number"
+          name="numero"
+        />
+        <button type="submit" onclick="enviarforms()">
+          quero garantir a minha vaga!
+        </button>
+        <p onclick="fecharforms()">x</p>
+      </form>
+    </div>
+
+    <script>
+      function exibirforms() {
+        document.getElementById("formulario").style.display = "flex";
+      }
+      function fecharforms() {
+        document.getElementById("formulario").style.display = "none";
+      }
+
+      function enviarforms(event) {
+        event.preventDefault();
+
+        var nome = document.getElementsByName("nome")[0].value;
+        var email = document.getElementsByName("email")[0].value;
+        var numero = document.getElementsByName("numero")[0].value;
+
+        if (nome === "" || email === "" || numero === "") {
+          alert("Por favor, preencha todos os campos.");
+        } else {
+          alert("Vaga garantida com sucesso!");
+
+          fecharforms();
+        }
+      }
+    </script>
   </body>
 </html>
