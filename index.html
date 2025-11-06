@@ -13,7 +13,7 @@
   <body>
     <main>
       <section class="secao-hero">
-        <div class="container-informacoes container">
+        <div class="container-hero container">
           <div class="informacoes">
             <div class="titulo-informacoes-jornada">
               <h1>Jornada Python da Hashtag</h1>
@@ -62,9 +62,8 @@
               />
             </div>
           </div>
-
           <img
-            class="lira-hashtag"
+            class="lira-secaohero"
             src="https://thunderous-eclair-ef442e.netlify.app/img/lira-dash.webp"
             alt="Lira da Hashtag Treinamentos"
           />
@@ -273,29 +272,6 @@
       </form>
     </div>
 
-    <script>
-      function exibirforms() {
-        document.getElementById("formulario").style.display = "flex";
-      }
-      function fecharforms() {
-        document.getElementById("formulario").style.display = "none";
-      }
-
-      function enviarforms(event) {
-        event.preventDefault();
-
-        var nome = document.getElementsByName("nome")[0].value;
-        var email = document.getElementsByName("email")[0].value;
-        var numero = document.getElementsByName("numero")[0].value;
-
-        if (nome === "" || email === "" || numero === "") {
-          alert("Por favor, preencha todos os campos.");
-        } else {
-          alert("Vaga garantida com sucesso!");
-
-          fecharforms();
-        }
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
