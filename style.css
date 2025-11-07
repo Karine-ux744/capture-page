@@ -11,10 +11,14 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.4;
+  overflow-x: hidden;
 }
-section {
-  min-width: 100vw;
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
 }
+
 /* Regras gerais */
 .container {
   max-width: 100rem;
@@ -57,34 +61,40 @@ button:hover {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  flex-flow: row;
   justify-content: center;
-  padding: 6.1rem 3rem;
+  padding: 6.1rem 2rem;
   padding-bottom: 0;
+  gap: 0;
 }
 .container-hero {
-  min-width: 100rem;
   display: flex;
-  justify-content: end;
+  align-items: end;
+  max-width: 100rem;
+  width: 100%;
   position: relative;
+  margin: auto;
+  height: fit-content;
 }
 .informacoes {
-  padding: 3.12rem 2.5rem;
-  background-color: #f1f1f1;
-  border-radius: 2.5rem;
-  max-width: 50%;
-  height: min-content;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 0;
-  height: min-content;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: center;
   gap: 2rem;
-  line-height: 1.2;
+  background-color: #f1f1f1;
+  min-width: 48rem;
+  margin-bottom: 6.1rem;
+  border-radius: 2.5rem;
+  padding: 3.12rem 2.5rem;
   box-shadow: inset 0 0 1.2rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+.lira-secaohero {
+  max-width: 70vw;
+  width: 100%;
+  position: relative;
+  right: 10%;
 }
 
 .titulo-informacoes-jornada {
@@ -92,7 +102,7 @@ button:hover {
   font-size: 3rem;
   font-weight: 600;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
@@ -115,30 +125,13 @@ button:hover {
 }
 .informacao div {
   display: flex;
-  flex-flow: row;
-  align-items: start;
-  column-gap: 0.82rem;
+  flex-flow: row nowrap;
 }
 
 .informacao img {
   height: 1.8rem;
 }
-.informacao p {
-  font-size: 1.92rem;
-  .informacao p span {
-    font-weight: 600;
-  }
-}
-.informacao div {
-  display: flex;
-  flex-flow: row;
-  align-items: start;
-  column-gap: 0.82rem;
-}
 
-.informacao img {
-  height: 1.8rem;
-}
 .informacao p {
   font-size: 1.92rem;
 }
@@ -161,15 +154,14 @@ button:hover {
   top: 0;
   right: 0;
   transform: translate(25%, -25%);
+  z-index: 10000;
 }
 .simbolo-hashtag img {
   width: 100%;
   height: 100%;
   display: block;
 }
-.lira-secaohero {
-  transform: translateX(7rem);
-}
+
 /* Seção "proteção de dados" */
 .secao-protecao-dados {
   font-size: 1.33rem;
@@ -177,7 +169,7 @@ button:hover {
   box-shadow: 0 0.5rem 1rem -0.2rem rgba(0, 0, 0, 0.15);
   padding: 3.12rem 2rem;
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: center;
 }
 .secao-protecao-dados p {
@@ -187,28 +179,34 @@ button:hover {
 /* "Seção passo a passo" */
 .secao-passo-a-passo {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   align-items: center;
   padding: 6.1rem 2rem;
 }
 .passos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  row-gap: 6rem;
 }
-.passos-colunaesquerda,
-.passos-colunadireita {
-  display: flex;
-  flex-flow: column;
-  gap: 7rem;
-  max-width: 30%;
-  font-size: 1.6rem;
+.passos-imglira {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+  align-self: center;
 }
+
 .passo-n {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
+  justify-content: stretch;
   gap: 1rem;
+  height: auto;
 }
+.passo-4 {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
 .passo-n-titulo {
   display: flex;
   flex-flow: row;
@@ -227,29 +225,34 @@ button:hover {
   color: #256783;
   font-weight: 700;
 }
+.passon-p {
+  font-size: 1.6rem;
+  height: min-content;
+}
 .container-secao-passo-a-passo {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   justify-content: center;
   gap: 5rem;
 }
 .titulo-passo-a-passo,
 .titulo-evento-gratuito {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: start;
   gap: 2rem;
+  width: 100%;
 }
 .titulo-passo-a-passo h2,
 .titulo-evento-gratuito h2 {
   font-size: 4.78rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 .titulo-passo-a-passo span,
 .titulo-evento-gratuito span {
   font-weight: 600;
   color: #256783;
+  line-height: 1;
 }
 .titulo-passo-a-passo img,
 .titulo-evento-gratuito img {
@@ -262,13 +265,15 @@ span {
 /* Seção "evento gratuito */
 .secao-evento-gratuito {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   align-items: center;
+  padding: 2rem;
   padding-top: 3rem;
+  padding-bottom: 0;
 }
 .container-evento-gratuito {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   align-content: center;
   align-items: center;
   gap: 5rem;
@@ -283,11 +288,13 @@ span {
   border-radius: 2rem;
   max-width: 100%;
 }
-.videos-evento-gratuito:hover {
+.videos-evento-gratuito div:hover {
   scale: 1.1;
   transition: scale ease 200ms;
 }
 .titulo-evento-gratuito {
+  display: flex;
+  flex-flow: row nowrap;
   max-width: 80%;
   line-height: 1;
   align-self: start;
@@ -299,23 +306,40 @@ span {
 .secao-lira {
   background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/62cefb1ecf7f4662905b5b1e_%5BBACKGROUND%5D%20-%20BANNER%2005%20-%20desktop.webp);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
   display: flex;
+  flex-flow: row;
   justify-content: center;
-  align-items: end;
-  height: 55rem;
-  background-position-x: 40%;
+  height: fit-content;
+  padding: 6.1rem 2rem;
+  padding-top: 21rem;
+  padding-bottom: 0;
 }
 .secao-lira p {
   color: #ffffff;
   font-size: 1.6rem;
+  display: block;
 }
 
 .container-lira {
   display: flex;
-  flex-flow: row;
   align-items: center;
-  gap: 4rem;
-  min-width: 100rem;
+  max-width: 100rem;
+  width: 100%;
+}
+.textos-lira {
+  display: flex;
+  flex-flow: column nowrap;
+  height: fit-content;
+  line-height: 1.2;
+  min-width: 400px;
+}
+.texto-lira {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 3rem;
+  height: fit-content;
 }
 .linha-vertical {
   width: 0.6rem;
@@ -324,6 +348,7 @@ span {
 }
 .titulo-lira {
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   gap: 2rem;
 }
@@ -331,11 +356,10 @@ span {
   font-size: 2.3rem;
   font-weight: 700;
 }
-.texto-lira {
-  display: flex;
-  flex-flow: column;
-  gap: 3.12rem;
-  line-height: 1.2;
+
+.lira-secaolira {
+  max-width: 500px;
+  min-width: 390px;
 }
 /* Rodapé */
 footer {
@@ -349,7 +373,6 @@ footer {
   align-items: center;
   width: 100rem;
   padding: 4.88rem 2rem;
-  padding-right: 0;
 }
 
 .container-footer p {
@@ -379,12 +402,12 @@ footer {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 1000000;
+  z-index: 100;
 }
 
 .formulario form {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   align-items: center;
   gap: 0.82rem;
   width: 50rem;
@@ -433,43 +456,157 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -webkit-moz-appearance: textfield;
 }
-
 /* Responsividade */
-@media all and (max-width: 785px) {
+
+@media all and (max-width: 770px) {
   html {
     font-size: 56.25%;
   }
-  .secao-hero {
-    background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/64957938a8a62d8071397ed5_pgc-python-bg1.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 6.1rem 2rem;
-    padding-bottom: 0;
-    min-width: 100%;
-  }
-  .container {
-    min-width: 100vw;
+  /* Seção hero */
+  .informacoes {
+    position: relative;
+    min-width: 38.5rem;
+    max-width: 48rem;
+    width: 100%;
   }
   .container-hero {
-    min-width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+  }
+  .lira-secaohero {
+    transform: none;
+    max-width: 50rem;
+    height: 100%;
+    left: 0;
+  }
+  /* Seção passo a passo */
+  .secao-passo-a-passo {
+    height: fit-content;
+    padding-bottom: 0;
+  }
+  .passos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .passos-imglira {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 3;
+    position: relative;
+    left: 30%;
+    bottom: 15%;
+    max-width: 27.5rem;
+  }
+  .passo-3 {
+    grid-column: 1;
+  }
+  .passo-4 {
+    grid-column: 2;
+  }
+
+  /* Seção evento gratuito */
+  .secao-evento-gratuito {
+    padding: 6.1rem 2rem;
+    padding-bottom: 0;
+  }
+  .titulo-evento-gratuito {
+    width: inherit;
+  }
+  .titulo-evento-gratuito h2 {
+    font-size: 3.98rem;
+    font-weight: 400;
+    align-self: stretch;
+  }
+
+  /* Seção lira */
+  .secao-lira {
+    background-image: url(https://assets-global.website-files.com/61b9e0dd381626819c8d4f83/62cefd163d834a0c0b773480_%5BBACKGROUND%5D%20-%20BANNER%2005%20-%20mobile.webp);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    padding-top: 14rem;
+  }
+
+  .container-lira {
+    flex-flow: column;
+  }
+  .textos-lira {
+    max-width: 424px;
+    min-width: min-content;
+    padding: 0;
+  }
+  .lira-secaolira {
+    max-width: 320px;
+    min-width: 320px;
+  }
+  /* Footer */
+  .container-footer {
+    justify-content: center;
+  }
+}
+@media all and (max-width: 630px) {
+  .lira-secaohero {
+    left: 0;
+    max-width: 40rem;
+    height: 100%;
+  }
+  .videos-evento-gratuito {
+    gap: 2rem;
+  }
+  .container-footer {
+    justify-content: center;
+  }
+}
+@media all and (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+  /* Seção hero */
+  .container-hero {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    position: static;
-    gap: 3.12rem;
   }
-  .container-hero img {
-    max-width: 42.4rem;
-    position: static;
-    align-self: center;
+  .lira-secaohero {
+    max-width: 35rem;
+    height: 100%;
+    left: 0;
   }
-  .informacoes {
-    max-width: 53rem;
-    transform: none;
-    z-index: 0;
-    position: relative;
+  /* Seção evento gratuito */
+  .secao-evento-gratuito {
+    padding: 3.9rem 2rem;
+  }
+  .videos-evento-gratuito {
+    display: flex;
+    flex-flow: column;
+  }
+  .titulo-evento-gratuito {
+    max-width: 100%;
+  }
+  .titulo-evento-gratuito img {
+    width: 3rem;
+  }
+  .titulo-evento-gratuito h2 {
+    font-size: 2.76rem;
+  }
+  /* Seção lira */
+  .secao-lira {
+    padding-top: 12rem;
+  }
+  /* Footer */
+  .container-footer {
+    flex-flow: column;
+    justify-content: center;
+  }
+  .container-footer p {
+    display: none;
+  }
+  .container-footer img {
+    width: 5rem;
+    height: 5rem;
   }
 }
